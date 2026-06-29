@@ -4,13 +4,15 @@ namespace GreenhouseGuard.Domain.Entities;
 
 public class SensorReading : Entity
 {
+    private SensorReading()
+    {
+    }
+
     public long SequenceNumber { get; private set; }
     public DateTime Timestamp { get; private set; }
     public decimal Temperature { get; private set; }
     public decimal Humidity { get; private set; }
     public int Co2Ppm { get; private set; }
-
-    private SensorReading() { }
 
     public static SensorReading Create(
         decimal temperature,

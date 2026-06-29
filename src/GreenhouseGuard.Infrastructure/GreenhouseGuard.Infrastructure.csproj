@@ -1,12 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <ItemGroup>
-        <ProjectReference Include="..\GreenhouseGuard.Application\GreenhouseGuard.Application.csproj" />
-        <ProjectReference Include="..\GreenhouseGuard.Domain\GreenhouseGuard.Domain.csproj" />
+        <ProjectReference Include="..\GreenhouseGuard.Application\GreenhouseGuard.Application.csproj"/>
+        <ProjectReference Include="..\GreenhouseGuard.Domain\GreenhouseGuard.Domain.csproj"/>
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="9.0.6" />
+        <FrameworkReference Include="Microsoft.AspNetCore.App"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="9.0.6"/>
     </ItemGroup>
 
     <PropertyGroup>

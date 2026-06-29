@@ -1,11 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <ItemGroup>
-        <ProjectReference Include="..\GreenhouseGuard.Domain\GreenhouseGuard.Domain.csproj" />
+        <ProjectReference Include="..\GreenhouseGuard.Domain\GreenhouseGuard.Domain.csproj"/>
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="MediatR" Version="14.1.0" />
+        <PackageReference Include="MediatR" Version="14.1.0"/>
+        <PackageReference Include="Microsoft.Extensions.Options" Version="10.0.9"/>
     </ItemGroup>
 
     <PropertyGroup>

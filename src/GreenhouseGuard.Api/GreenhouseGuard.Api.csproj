@@ -7,13 +7,13 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\GreenhouseGuard.Application\GreenhouseGuard.Application.csproj" />
-        <ProjectReference Include="..\GreenhouseGuard.Infrastructure\GreenhouseGuard.Infrastructure.csproj" />
+        <ProjectReference Include="..\GreenhouseGuard.Application\GreenhouseGuard.Application.csproj"/>
+        <ProjectReference Include="..\GreenhouseGuard.Infrastructure\GreenhouseGuard.Infrastructure.csproj"/>
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.6" />
-        <PackageReference Include="Scalar.AspNetCore" Version="2.16.5" />
+        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.6"/>
+        <PackageReference Include="Scalar.AspNetCore" Version="2.16.5"/>
     </ItemGroup>
 
 </Project>
