@@ -16,30 +16,21 @@ public sealed class AnomalyDetector
         ArgumentOutOfRangeException.ThrowIfNegativeOrZero(requiredSampleSize);
         ArgumentOutOfRangeException.ThrowIfNegativeOrZero(zScoreThreshold);
 
-        if (historicalValues.Count < requiredSampleSize)
-        {
-            return null;
-        }
+        if (historicalValues.Count < requiredSampleSize) return null;
 
         var mean = historicalValues.Average();
         var standardDeviation = CalculateStandardDeviation(historicalValues, mean);
 
-        if (standardDeviation == 0m)
-        {
-            return null;
-        }
+        if (standardDeviation == 0m) return null;
 
         var zScore = Math.Abs((value - mean) / standardDeviation);
-        if (zScore <= zScoreThreshold)
-        {
-            return null;
-        }
+        if (zScore <= zScoreThreshold) return null;
 
         return Anomaly.Create(
             sensorType,
             value,
             zScore,
-                $"Z-score {zScore:0.00} exceeded threshold {zScoreThreshold:0.00} for {sensorType}.");
+            $"Z-score {zScore:0.00} exceeded threshold {zScoreThreshold:0.00} for {sensorType}.");
     }
 
     private static decimal CalculateStandardDeviation(IReadOnlyCollection<decimal> values, decimal mean)

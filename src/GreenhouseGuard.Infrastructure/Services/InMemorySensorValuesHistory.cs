@@ -6,10 +6,9 @@ namespace GreenhouseGuard.Infrastructure.Services;
 
 public sealed class InMemorySensorValuesHistory : ISensorValuesHistory
 {
-    private readonly int _windowSize;
-
     private readonly Dictionary<string, Queue<decimal>> _sensorWindows = new(StringComparer.OrdinalIgnoreCase);
     private readonly object _syncRoot = new();
+    private readonly int _windowSize;
 
     public InMemorySensorValuesHistory(IOptions<SensorMonitoringOptions> options)
     {
@@ -30,10 +29,7 @@ public sealed class InMemorySensorValuesHistory : ISensorValuesHistory
                 _sensorWindows[sensorType] = window;
             }
 
-            if (window.Count == _windowSize)
-            {
-                window.Dequeue();
-            }
+            if (window.Count == _windowSize) window.Dequeue();
 
             window.Enqueue(value);
         }
@@ -45,10 +41,7 @@ public sealed class InMemorySensorValuesHistory : ISensorValuesHistory
 
         lock (_syncRoot)
         {
-            if (!_sensorWindows.TryGetValue(sensorType, out var window))
-            {
-                return Array.Empty<decimal>();
-            }
+            if (!_sensorWindows.TryGetValue(sensorType, out var window)) return Array.Empty<decimal>();
 
             return window.ToArray();
         }
